@@ -250,16 +250,7 @@ func TestOrderPay(t *testing.T) {
 			Meta: map[string]string{"order_id": "137"},
 		},
 	}
-	params.SetSource(&stripe.CardParams{
-		Name:     "Stripe Tester",
-		Number:   "4242424242424242",
-		Month:    "06",
-		Year:     "20",
-		Address1: "1234 Main Street",
-		Address2: "Apt 1",
-		City:     "Anytown",
-		State:    "CA",
-	})
+	params.SetSource("tok_visa")
 
 	order, err := Pay(o.ID, params)
 
@@ -378,16 +369,7 @@ func TestOrderReturn(t *testing.T) {
 	}
 
 	params := &stripe.OrderPayParams{}
-	params.SetSource(&stripe.CardParams{
-		Name:     "Stripe Tester",
-		Number:   "4242424242424242",
-		Month:    "06",
-		Year:     "20",
-		Address1: "1234 Main Street",
-		Address2: "Apt 1",
-		City:     "Anytown",
-		State:    "CA",
-	})
+	params.SetSource("tok_visa")
 
 	order, err := Pay(o.ID, params)
 
